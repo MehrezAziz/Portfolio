@@ -1,0 +1,28 @@
+# App-only mode: run the portfolio behind an EXISTING host reverse proxy that
+# already owns ports 80/443 (e.g. when another site shares this VPS/IP).
+#
+# It publishes the app on 127.0.0.1:3001 only (not public); your host nginx
+# proxies azizmehrez.com -> http://127.0.0.1:3001.
+#
+# Usage on the VPS:
+#   docker compose -f docker-compose.prod.yml down      # stop the conflicting nginx stack
+#   docker compose -f docker-compose.app.yml up -d --build
+
+services:
+  web:
+    build:
+      context: .
+    image: aziz-portfolio:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3001:3000"
+    volumes:
+      - portfolio_data:/app/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  portfolio_data:
