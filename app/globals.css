@@ -55,14 +55,13 @@ html.light .text-neon-cyan {
   color: var(--neon-cyan-ink);
 }
 
-/* Custom cursor visibility only on hover-capable, fine pointers */
+/* Hide the native cursor only on pages that mount the custom cursor
+   (CustomCursor adds .custom-cursor to <html>), and only on hover + fine pointers. */
 @media (hover: hover) and (pointer: fine) {
-  body {
-    cursor: none;
-  }
-  a,
-  button,
-  .cursor-interactive {
+  html.custom-cursor,
+  html.custom-cursor a,
+  html.custom-cursor button,
+  html.custom-cursor .cursor-interactive {
     cursor: none;
   }
 }

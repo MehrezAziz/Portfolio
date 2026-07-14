@@ -14,6 +14,9 @@ export default function CustomCursor() {
     // Skip on touch / coarse pointers
     if (window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
 
+    // Signal to CSS that the native cursor should be hidden on this page.
+    document.documentElement.classList.add("custom-cursor");
+
     let ringX = 0;
     let ringY = 0;
     let mouseX = 0;
@@ -50,6 +53,7 @@ export default function CustomCursor() {
       cancelAnimationFrame(raf);
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseover", onOver);
+      document.documentElement.classList.remove("custom-cursor");
     };
   }, []);
 
