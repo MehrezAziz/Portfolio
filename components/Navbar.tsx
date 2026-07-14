@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { profile } from "@/lib/data";
+import { cvFiles } from "@/lib/data";
 import ThemeToggle from "./ThemeToggle";
+import CvDownload from "./CvDownload";
 
 const links = [
   { id: "about", label: "About" },
@@ -66,12 +68,13 @@ export default function Navbar() {
         }`}
       >
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-5">
-          <button
-            onClick={() => go("hero")}
+          <Link
+            href="/profile"
+            aria-label="About Ahmed Aziz Mehrez"
             className="cursor-interactive font-mono text-lg font-bold tracking-tight"
           >
             <span className="text-gradient animate-gradient-x">{"<AM/>"}</span>
-          </button>
+          </Link>
 
           <ul className="hidden items-center gap-1 md:flex">
             {links.map((l) => (
@@ -99,12 +102,9 @@ export default function Navbar() {
 
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <a
-              href={`mailto:${profile.email}`}
-              className="cursor-interactive hidden rounded-full border border-neon-cyan/40 bg-neon-cyan/5 px-4 py-2 text-sm font-medium text-neon-cyan transition-all hover:bg-neon-cyan/15 hover:glow-cyan md:inline-block"
-            >
-              Hire Me
-            </a>
+            <div className="hidden md:block">
+              <CvDownload variant="nav" />
+            </div>
             <button
               onClick={() => setOpen((v) => !v)}
               className="cursor-interactive text-fg md:hidden"
@@ -143,13 +143,23 @@ export default function Navbar() {
                 </button>
               </li>
             ))}
-            <li>
-              <a
-                href={`mailto:${profile.email}`}
-                className="mt-2 block rounded-lg bg-gradient-to-r from-neon-cyan to-neon-purple px-4 py-3 text-center font-semibold text-base text-black"
-              >
-                Hire Me
-              </a>
+            <li className="mt-2 border-t border-line pt-2">
+              <p className="px-4 py-1 text-[11px] uppercase tracking-wider text-fg-subtle">
+                Download CV
+              </p>
+              <div className="flex gap-2 px-2">
+                {cvFiles.map((cv) => (
+                  <a
+                    key={cv.short}
+                    href={cv.file}
+                    download
+                    onClick={() => setOpen(false)}
+                    className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-neon-cyan/40 bg-neon-cyan/5 px-3 py-2.5 text-sm font-medium text-neon-cyan"
+                  >
+                    <span className="text-base leading-none">{cv.flag}</span> {cv.short}
+                  </a>
+                ))}
+              </div>
             </li>
           </ul>
         </motion.div>

@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, MapPin, ArrowDown, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, ArrowDown } from "lucide-react";
 import { profile, stats } from "@/lib/data";
 import Counter from "./Counter";
+import CvDownload from "./CvDownload";
 
 function useTypewriter(words: string[]) {
   const [text, setText] = useState("");
@@ -135,13 +136,7 @@ export default function Hero() {
           >
             Get in Touch
           </a>
-          <a
-            href="/Ahmed_Aziz_Mehrez_Resume.pdf"
-            download
-            className="cursor-interactive inline-flex items-center gap-2 rounded-full border border-neon-purple/40 bg-neon-purple/5 px-7 py-3 font-semibold text-neon-purple transition-all hover:bg-neon-purple/15 hover:glow-purple"
-          >
-            <FileText size={18} /> Download CV
-          </a>
+          <CvDownload variant="hero" />
         </motion.div>
 
         {/* Socials */}

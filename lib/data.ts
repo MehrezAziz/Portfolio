@@ -5,10 +5,11 @@ export const profile = {
   subtitle: "AI & Computer Vision Enthusiast",
   roles: [
     "Full-Stack Engineer",
-    "Mobile Developer (React Native)",
+    "Mobile Developer",
     "DevOps & CI/CD",
     "AI & Computer Vision Enthusiast",
   ],
+  image: "/profile.png",
   location: "Tunis, Tunisia",
   phone: "+216 21 838 333",
   email: "azizmehrez12@gmail.com",
@@ -21,6 +22,12 @@ export const profile = {
   // Edit this one line to change the hero status pill.
   availabilityText: "Available for full-time roles · Remote or relocation",
 };
+
+// CV / résumé files (in /public). Used by the language download button.
+export const cvFiles = [
+  { lang: "English", short: "EN", flag: "🇬🇧", file: "/Ahmed_Aziz_Mehrez_Resume_EN.pdf" },
+  { lang: "Français", short: "FR", flag: "🇫🇷", file: "/Ahmed_Aziz_Mehrez_Resume_FR.pdf" },
+];
 
 export const stats = [
   { value: 3, suffix: "+", label: "Professional Internships" },

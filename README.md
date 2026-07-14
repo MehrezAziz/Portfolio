@@ -24,7 +24,9 @@ All text lives in **`lib/data.ts`** — profile, availability status, experience
 projects, skills, achievements, and languages. Edit that one file to update the site.
 
 - **Availability pill:** `profile.availabilityText` in `lib/data.ts`.
-- **Résumé:** replace `public/Ahmed_Aziz_Mehrez_Resume.pdf` with an updated export.
+- **Résumé:** replace `public/Ahmed_Aziz_Mehrez_Resume_EN.pdf` and
+  `public/Ahmed_Aziz_Mehrez_Resume_FR.pdf` with updated exports (English / French).
+- **Profile photo:** replace `public/profile.png`. The `<AM/>` logo opens `/profile`.
 - **Project screenshots:** drop an image in `public/projects/` and set the
   `image` field on that project (e.g. `image: "/projects/lsd.png"`) — it replaces
   the gradient banner automatically.
