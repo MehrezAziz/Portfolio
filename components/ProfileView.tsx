@@ -58,7 +58,7 @@ export default function ProfileView() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="glass relative rounded-3xl p-7 md:p-10"
+          className="glass relative z-30 rounded-3xl p-7 md:p-10"
         >
           <div className="flex flex-col items-center gap-7 text-center md:flex-row md:items-center md:text-left">
             <motion.div

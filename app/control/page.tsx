@@ -236,14 +236,19 @@ function Overview() {
 }
 
 /* --------------------------------------------------------------- Messages */
-function MessagesTab() {
+function MessagesTab({ onCount }: { onCount?: (n: number) => void }) {
   const [list, setList] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   const load = useCallback(() => {
     setLoading(true);
-    jget("/api/admin/messages").then((l) => setList(l)).finally(() => setLoading(false));
-  }, []);
+    jget("/api/admin/messages")
+      .then((l) => {
+        setList(l);
+        onCount?.(l.filter((x: any) => !x.read).length);
+      })
+      .finally(() => setLoading(false));
+  }, [onCount]);
   useEffect(() => load(), [load]);
 
   const act = async (method: string, body: any) => {
@@ -657,11 +662,23 @@ const TABS: { id: Tab; label: string; icon: any }[] = [
 export default function ControlPage() {
   const [me, setMe] = useState<Me | null>(null);
   const [tab, setTab] = useState<Tab>("overview");
+  const [unread, setUnread] = useState(0);
 
   const refresh = useCallback(() => {
     jget("/api/auth/me").then(setMe).catch(() => setMe({ authed: false, email: null }));
   }, []);
   useEffect(() => refresh(), [refresh]);
+
+  const loadUnread = useCallback(() => {
+    jget("/api/admin/analytics")
+      .then((d) => setUnread(d.unreadMessages || 0))
+      .catch(() => {});
+  }, []);
+  // Refresh the badge on login and whenever the active tab changes
+  // (so it updates after you read messages and switch away).
+  useEffect(() => {
+    if (me?.authed) loadUnread();
+  }, [me?.authed, tab, loadUnread]);
 
   const logout = async () => {
     await fetch("/api/auth/logout", { method: "POST" });
@@ -704,19 +721,24 @@ export default function ControlPage() {
             <button
               key={t.id}
               onClick={() => setTab(t.id)}
-              className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              className={`relative inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                 tab === t.id
                   ? "bg-gradient-to-r from-neon-cyan to-neon-purple text-black"
                   : "border border-line bg-overlay text-fg-muted hover:text-fg"
               }`}
             >
               <t.icon size={15} /> {t.label}
+              {t.id === "messages" && unread > 0 && (
+                <span className="inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-500 px-1.5 text-[10px] font-bold text-white">
+                  {unread}
+                </span>
+              )}
             </button>
           ))}
         </div>
 
         {tab === "overview" && <Overview />}
-        {tab === "messages" && <MessagesTab />}
+        {tab === "messages" && <MessagesTab onCount={setUnread} />}
         {tab === "content" && <ContentTab />}
         {tab === "cvs" && <CvTab />}
         {tab === "picture" && <PictureTab />}

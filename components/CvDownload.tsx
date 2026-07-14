@@ -34,7 +34,7 @@ export default function CvDownload({ variant = "nav", className = "" }: Props) {
       : "inline-flex items-center gap-1.5 rounded-full border border-neon-cyan/40 bg-neon-cyan/5 px-4 py-2 text-sm font-medium text-neon-cyan transition-all hover:bg-neon-cyan/15";
 
   return (
-    <div ref={ref} className={`relative ${className}`}>
+    <div ref={ref} className={`relative ${open ? "z-[60]" : ""} ${className}`}>
       <button
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="menu"
@@ -57,7 +57,7 @@ export default function CvDownload({ variant = "nav", className = "" }: Props) {
             exit={{ opacity: 0, y: -8, scale: 0.96 }}
             transition={{ duration: 0.15 }}
             role="menu"
-            className={`glass absolute z-50 mt-2 w-52 overflow-hidden rounded-xl p-1.5 shadow-xl ${
+            className={`glass absolute z-[70] mt-2 w-52 overflow-hidden rounded-xl p-1.5 shadow-xl ${
               variant === "hero" ? "left-1/2 -translate-x-1/2" : "right-0"
             }`}
           >
