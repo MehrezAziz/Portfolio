@@ -9,7 +9,7 @@ export const profile = {
     "DevOps & CI/CD",
     "AI & Computer Vision Enthusiast",
   ],
-  image: "/profile.png",
+  image: "/api/profile-image",
   location: "Tunis, Tunisia",
   phone: "+216 21 838 333",
   email: "azizmehrez12@gmail.com",
@@ -25,8 +25,8 @@ export const profile = {
 
 // CV / résumé files (in /public). Used by the language download button.
 export const cvFiles = [
-  { lang: "English", short: "EN", flag: "🇬🇧", file: "/Ahmed_Aziz_Mehrez_Resume_EN.pdf" },
-  { lang: "Français", short: "FR", flag: "🇫🇷", file: "/Ahmed_Aziz_Mehrez_Resume_FR.pdf" },
+  { lang: "English", short: "EN", flag: "🇬🇧", file: "/api/cv?lang=en" },
+  { lang: "Français", short: "FR", flag: "🇫🇷", file: "/api/cv?lang=fr" },
 ];
 
 export const stats = [

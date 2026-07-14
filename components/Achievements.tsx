@@ -1,11 +1,12 @@
 "use client";
 
 import { Award, Trophy, Users } from "lucide-react";
-import { achievements, leadership } from "@/lib/data";
+import { useSiteContent } from "@/components/SiteContentProvider";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
 
 export default function Achievements() {
+  const { achievements, leadership } = useSiteContent();
   return (
     <section id="achievements" className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
       <SectionHeading

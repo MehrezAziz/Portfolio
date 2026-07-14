@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, ExternalLink } from "lucide-react";
-import { experiences } from "@/lib/data";
+import { useSiteContent } from "@/components/SiteContentProvider";
 import SectionHeading from "./SectionHeading";
 
 export default function Experience() {
+  const { experiences } = useSiteContent();
   return (
     <section id="experience" className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
       <SectionHeading index="02" subtitle="Where I've worked" title="Experience" />

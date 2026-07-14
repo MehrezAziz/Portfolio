@@ -3,7 +3,8 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Star, Folder } from "lucide-react";
-import { projects, type Project } from "@/lib/data";
+import { type Project } from "@/lib/data";
+import { useSiteContent } from "@/components/SiteContentProvider";
 import SectionHeading from "./SectionHeading";
 
 function TiltCard({ project, index }: { project: Project; index: number }) {
@@ -122,6 +123,7 @@ function TiltCard({ project, index }: { project: Project; index: number }) {
 }
 
 export default function Projects() {
+  const { projects } = useSiteContent();
   const featured = projects.filter((p) => p.featured);
   const others = projects.filter((p) => !p.featured);
 

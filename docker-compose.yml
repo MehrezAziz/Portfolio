@@ -2,13 +2,12 @@ services:
   web:
     build:
       context: .
-      args:
-        # Read from the server's .env file (see .env.example). Optional.
-        NEXT_PUBLIC_FORMSPREE_ID: ${NEXT_PUBLIC_FORMSPREE_ID:-REPLACE_WITH_YOUR_FORM_ID}
     image: aziz-portfolio:latest
     restart: unless-stopped
     expose:
       - "3000"
+    volumes:
+      - portfolio_data:/app/data
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000"]
       interval: 30s
@@ -29,3 +28,6 @@ services:
       # Uncomment these two when enabling HTTPS with Certbot:
       # - ./nginx/certbot/conf:/etc/letsencrypt:ro
       # - ./nginx/certbot/www:/var/www/certbot:ro
+
+volumes:
+  portfolio_data:

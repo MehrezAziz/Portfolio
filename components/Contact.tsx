@@ -2,11 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, MapPin, Phone } from "lucide-react";
-import { profile } from "@/lib/data";
+import { useSiteContent } from "@/components/SiteContentProvider";
 import SectionHeading from "./SectionHeading";
 import ContactForm from "./ContactForm";
 
 export default function Contact() {
+  const { profile } = useSiteContent();
   const items = [
     { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
     { icon: Phone, label: "Phone", value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, "")}` },

@@ -18,40 +18,36 @@ npm run build
 npm start
 ```
 
-## Editing your content
+## Control panel (`/control`)
 
-All text lives in **`lib/data.ts`** — profile, availability status, experience,
-projects, skills, achievements, and languages. Edit that one file to update the site.
+A private admin dashboard lets you manage everything at runtime — **no redeploy needed**:
 
-- **Availability pill:** `profile.availabilityText` in `lib/data.ts`.
-- **Résumé:** replace `public/Ahmed_Aziz_Mehrez_Resume_EN.pdf` and
-  `public/Ahmed_Aziz_Mehrez_Resume_FR.pdf` with updated exports (English / French).
-- **Profile photo:** replace `public/profile.png`. The `<AM/>` logo opens `/profile`.
-- **Project screenshots:** drop an image in `public/projects/` and set the
-  `image` field on that project (e.g. `image: "/projects/lsd.png"`) — it replaces
-  the gradient banner automatically.
+- **URL:** `https://yourdomain.com/control`
+- **Default login:** `azizmehrez12@gmail.com` / `00000000` — **change the password**
+  immediately from the Password tab.
+- **Content:** edit profile/hero fields inline, or every section (experience,
+  projects, skills, …) via the advanced JSON editor. Saves reflect on the live site instantly.
+- **CVs:** upload new English / French PDFs, and see download counts.
+- **Picture:** upload a new profile photo.
+- **Messages:** read/reply/delete messages sent through the contact form.
+- **Overview:** visits, unique visitors, per-day trend, top pages/referrers/countries,
+  device breakdown, and CV downloads. (Website visitors are anonymous — real names
+  aren't available for web traffic; country/device/source are shown instead.)
 
-## Contact form (Formspree)
+All of this is stored in a JSON data store under `DATA_DIR` (a persistent Docker
+volume in production — see `DEPLOY.md`). The code defaults live in `lib/data.ts`;
+the control panel overrides them.
 
-The contact form posts to [Formspree](https://formspree.io) (free tier).
+## Contact form
 
-1. Create a form at formspree.io and point it at `azizmehrez12@gmail.com`.
-2. Copy the form ID from the endpoint URL `https://formspree.io/f/XXXX`.
-3. Create `.env.local` (copy from `.env.local.example`) and set:
-   ```
-   NEXT_PUBLIC_FORMSPREE_ID=XXXX
-   ```
-4. On Vercel, add the same env var under Project → Settings → Environment Variables.
+Messages submitted through the site are stored in the data store and appear in
+the control panel's **Messages** tab (`POST /api/contact`). No third-party service required.
 
-Until it's set, the form shows a friendly notice and visitors can still use the
-direct email/LinkedIn/GitHub links below it.
+## Deploy
 
-## Deploy (free) — Vercel
-
-1. Push this repo to GitHub (already at `github.com/MehrezAziz/Portfolio`).
-2. Go to [vercel.com](https://vercel.com) → **Add New Project** → import the repo.
-3. Vercel auto-detects Next.js — add the `NEXT_PUBLIC_FORMSPREE_ID` env var, then **Deploy**.
-4. (Optional) Add a custom domain under Project → Settings → Domains.
+Self-hosted on a VPS with Docker + Nginx — see **`DEPLOY.md`** (includes the
+Cloudflare + HTTPS setup for `azizmehrez.com`). The `portfolio_data` Docker
+volume persists all control-panel data across redeploys.
 
 ## Tech
 

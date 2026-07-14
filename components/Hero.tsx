@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MapPin, ArrowDown } from "lucide-react";
-import { profile, stats } from "@/lib/data";
+import { useSiteContent } from "@/components/SiteContentProvider";
 import Counter from "./Counter";
 import CvDownload from "./CvDownload";
 
@@ -40,6 +40,7 @@ function useTypewriter(words: string[]) {
 }
 
 export default function Hero() {
+  const { profile, stats } = useSiteContent();
   const typed = useTypewriter(profile.roles);
 
   return (

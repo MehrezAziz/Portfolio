@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Code2, Smartphone, Server, Brain } from "lucide-react";
-import { profile, education, languages } from "@/lib/data";
+import { useSiteContent } from "@/components/SiteContentProvider";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
 
@@ -14,6 +14,7 @@ const pillars = [
 ];
 
 export default function About() {
+  const { profile, education, languages } = useSiteContent();
   return (
     <section id="about" className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
       <SectionHeading index="01" subtitle="Get to know me" title="About Me" />

@@ -244,6 +244,24 @@ ufw delete allow 443/tcp    # remove the open-to-all rule
 
 ---
 
+## 10. Control panel (admin dashboard)
+
+After deploy, visit **`https://azizmehrez.com/control`** (or `http://YOUR_VPS_IP/control`).
+
+- **First login:** `azizmehrez12@gmail.com` / `00000000`. **Change the password
+  right away** from the Password tab.
+- From there you can edit any section's content, upload new EN/FR CVs, change your
+  profile picture, read contact-form messages, and view visitor + download analytics.
+- All admin data (content, uploads, messages, analytics, credentials) lives in the
+  **`portfolio_data`** Docker volume, so it survives `git pull` + rebuilds.
+  Back it up with:
+  ```bash
+  docker run --rm -v portfolio_portfolio_data:/data -v $(pwd):/backup alpine \
+    tar czf /backup/portfolio-data-backup.tar.gz -C /data .
+  ```
+
+---
+
 ## Troubleshooting
 
 - **Site not loading:** `docker compose logs web` and `docker compose logs nginx`.

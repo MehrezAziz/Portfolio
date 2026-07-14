@@ -1,3 +1,5 @@
+import { getContent } from "@/lib/content";
+import { SiteContentProvider } from "@/components/SiteContentProvider";
 import ParticleBackground from "@/components/ParticleBackground";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
@@ -10,9 +12,13 @@ import Achievements from "@/components/Achievements";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+// Content is editable at runtime via the control panel, so render dynamically.
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const content = await getContent();
   return (
-    <>
+    <SiteContentProvider value={content}>
       <ParticleBackground />
       <CustomCursor />
       <Navbar />
@@ -26,6 +32,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </SiteContentProvider>
   );
 }

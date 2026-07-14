@@ -1,9 +1,10 @@
 "use client";
 
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
-import { profile } from "@/lib/data";
+import { useSiteContent } from "@/components/SiteContentProvider";
 
 export default function Footer() {
+  const { profile } = useSiteContent();
   return (
     <footer className="relative border-t border-line py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-5 sm:flex-row sm:justify-between">

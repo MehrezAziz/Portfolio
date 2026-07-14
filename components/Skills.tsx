@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { skillGroups, marqueeSkills } from "@/lib/data";
+import { useSiteContent } from "@/components/SiteContentProvider";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
 
 export default function Skills() {
+  const { skillGroups, marqueeSkills } = useSiteContent();
   return (
     <section id="skills" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-5">

@@ -4,51 +4,36 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 
-/**
- * Formspree endpoint.
- * 1. Create a free form at https://formspree.io (use your email: azizmehrez12@gmail.com).
- * 2. Copy the form ID (looks like "xyzabcd") from the endpoint URL.
- * 3. Set it below OR add NEXT_PUBLIC_FORMSPREE_ID to a .env.local file.
- */
-const FORMSPREE_ID =
-  process.env.NEXT_PUBLIC_FORMSPREE_ID || "REPLACE_WITH_YOUR_FORM_ID";
-const ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
-
 type Status = "idle" | "loading" | "success" | "error";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
-  const configured = FORMSPREE_ID !== "REPLACE_WITH_YOUR_FORM_ID";
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!configured) {
-      setStatus("error");
-      setError(
-        "The form isn't connected yet. Add your Formspree ID to enable it — meanwhile, email me directly below."
-      );
-      return;
-    }
-
     const form = e.currentTarget;
     const data = new FormData(form);
+    const payload = {
+      name: String(data.get("name") || ""),
+      email: String(data.get("email") || ""),
+      message: String(data.get("message") || ""),
+    };
     setStatus("loading");
     setError("");
 
     try {
-      const res = await fetch(ENDPOINT, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
-      if (res.ok) {
+      const json = await res.json().catch(() => null);
+      if (res.ok && json?.ok) {
         setStatus("success");
         form.reset();
       } else {
-        const json = await res.json().catch(() => null);
-        setError(json?.errors?.[0]?.message || "Something went wrong. Please try again.");
+        setError(json?.error || "Something went wrong. Please try again.");
         setStatus("error");
       }
     } catch {
