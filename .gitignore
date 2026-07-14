@@ -9,3 +9,7 @@ npm-debug.log*
 !.env*.example
 .vercel
 next-env.d.ts
+
+# TLS / origin certificates — never commit these
+nginx/certs/*
+!nginx/certs/.gitkeep

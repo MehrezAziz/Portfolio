@@ -1,0 +1,4 @@
+# Place your Cloudflare Origin Certificate here on the VPS:
+#   origin.pem   (the certificate)
+#   origin.key   (the private key)
+# These are gitignored and must NOT be committed.

@@ -176,6 +176,74 @@ crontab -e
 
 ---
 
+## 9. Deploy with a domain via Cloudflare (azizmehrez.com) — recommended
+
+This uses a **Cloudflare Origin Certificate** with SSL mode **Full (Strict)**.
+No Certbot needed; the origin cert is valid for 15 years.
+
+### 9.1 — Add the site & DNS records (Cloudflare dashboard)
+
+1. If not already done: **Add a site** → `azizmehrez.com`, then set the two
+   Cloudflare nameservers at your registrar and wait for it to go "Active".
+2. Go to **DNS → Records** and add (delete any conflicting old A/AAAA records):
+
+   | Type | Name | Content       | Proxy status   |
+   |------|------|---------------|----------------|
+   | A    | @    | YOUR_VPS_IP   | Proxied (🟠)   |
+   | A    | www  | YOUR_VPS_IP   | Proxied (🟠)   |
+
+### 9.2 — SSL mode + Origin Certificate
+
+1. **SSL/TLS → Overview** → set encryption mode to **Full (strict)**.
+2. **SSL/TLS → Origin Server → Create Certificate** → keep defaults
+   (RSA, hostnames `azizmehrez.com, *.azizmehrez.com`) → **Create**.
+3. Copy the two blocks it shows:
+   - *Origin Certificate* → this is `origin.pem`
+   - *Private Key* → this is `origin.key`
+   (You can only see the key once — copy it now.)
+
+### 9.3 — Put the cert on the VPS
+
+```bash
+cd /opt/portfolio
+mkdir -p nginx/certs
+nano nginx/certs/origin.pem   # paste the Origin Certificate, save (Ctrl+O, Enter, Ctrl+X)
+nano nginx/certs/origin.key   # paste the Private Key, save
+chmod 600 nginx/certs/origin.key
+```
+
+### 9.4 — Open 443 and start the production stack
+
+```bash
+ufw allow 443/tcp
+docker compose -f docker-compose.prod.yml up -d --build
+```
+
+Visit **https://azizmehrez.com** — you should see the site with a padlock. 🔒
+
+> From now on, updates use the same `-f` flag:
+> ```bash
+> cd /opt/portfolio && git pull && docker compose -f docker-compose.prod.yml up -d --build
+> ```
+
+### 9.5 — Recommended Cloudflare toggles
+
+- **SSL/TLS → Edge Certificates → Always Use HTTPS: On**
+- **Automatic HTTPS Rewrites: On**
+- (Optional) **Speed → Brotli: On**
+
+### 9.6 — (Optional) Lock the origin to Cloudflare only
+
+So people can't hit your VPS IP directly, allow ports 80/443 **only** from
+Cloudflare's IP ranges (https://www.cloudflare.com/ips/). Quick version:
+
+```bash
+for ip in $(curl -s https://www.cloudflare.com/ips-v4); do ufw allow from $ip to any port 443 proto tcp; done
+ufw delete allow 443/tcp    # remove the open-to-all rule
+```
+
+---
+
 ## Troubleshooting
 
 - **Site not loading:** `docker compose logs web` and `docker compose logs nginx`.
