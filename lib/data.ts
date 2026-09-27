@@ -10,14 +10,14 @@ export const profile = {
     "AI & Computer Vision Enthusiast",
   ],
   image: "/api/profile-image",
-  location: "Tunis, Tunisia",
+  location: "Monastir, Tunisia",
   phone: "+216 21 838 333",
   email: "azizmehrez12@gmail.com",
   linkedin: "https://linkedin.com/in/aziz-mehrez-204294232",
   github: "https://github.com/MehrezAziz",
-  bio: "Graduating Software Engineering student (ISSAT Sousse) with hands-on full-stack, mobile, and DevOps development experience gained across three internships, and a genuine enthusiasm for AI and computer vision. I've built a React Native on-demand delivery platform integrating an AI assistant (Groq LLM) and an ML microservice for driver verification, with automated CI/CD pipelines, a NestJS/Next.js ERP and e-commerce system, and a MERN-based bidding platform.",
+  bio: "Software Engineer (ISSAT Sousse) specialized in full-stack, mobile, and DevOps development, with a dual skill set in digital marketing and a genuine enthusiasm for AI and computer vision. Managing Director of Amirez since April 2025, leading the development team in Agile (Scrum) and overseeing Facebook Ads campaigns. Previously a freelance full-stack developer and marketing specialist (ERP, e-commerce stores, Meta Ads), with three internships completed: a React Native on-demand delivery platform integrating an AI assistant (Groq LLM) and an ML microservice for driver verification, a NestJS/Next.js ERP and e-commerce system, and a MERN-based bidding platform.",
   bioShort:
-    "Comfortable working across the stack — mobile, backend, frontend, DevOps, and infrastructure — and looking for a role where I can keep building and learning.",
+    "Comfortable across the stack — mobile, backend, frontend, DevOps, and infrastructure — as well as team management, and looking for a role where I can keep building and learning.",
   available: true,
   // Edit this one line to change the hero status pill.
   availabilityText: "Available for full-time roles · Remote or relocation",
@@ -49,6 +49,23 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
+    role: "Managing Director",
+    company: "Amirez — Development & Marketing Lead",
+    period: "Apr 2025 – Present",
+    type: "Full-Time",
+    highlights: [
+      "Direct management of the Development pole in Agile (Scrum): 2-week sprints with sprint planning, daily stand-ups, sprint review, and retrospective.",
+      "Managed and prioritized the product backlog (user stories, acceptance criteria, story-point estimation) aligned with client needs.",
+      "Tracked progress with project management tools (Jira/Trello), performed code review, and set up CI/CD pipelines for regular releases.",
+      "Mentored developers and distributed tasks according to skillset.",
+      "Defined Meta Ads campaign strategy by objective: awareness, traffic, lead generation, or conversions.",
+      "Segmented audiences via interest targeting, custom and lookalike audiences, and retargeting.",
+      "Ran A/B tests on creatives, copy, and audiences, reallocating budget toward top performers.",
+      "Tracked KPIs (CTR, CPC, CPA, ROAS) via Meta Pixel and Ads Manager, with regular performance reporting.",
+    ],
+    tech: ["Agile / Scrum", "Jira", "Trello", "CI/CD", "Meta Ads", "Meta Pixel"],
+  },
+  {
     role: "Software Engineering Intern (PFE)",
     company: "A.Solutions — Local Smart Delivery",
     period: "Feb 2026 – Jun 2026",
@@ -69,8 +86,20 @@ export const experiences: Experience[] = [
     ],
   },
   {
+    role: "Freelance Full-Stack Developer & Marketing Specialist",
+    company: "Self-Employed",
+    period: "Feb 2024 – Apr 2025",
+    type: "Freelance",
+    highlights: [
+      "Set up complete ERP systems and e-commerce storefronts, integrating the Meta Pixel to measure conversions.",
+      "Ran Facebook Ads campaigns: A/B testing creatives and audiences, optimizing budget and cost-per-acquisition, and analyzing performance.",
+      "Defined digital marketing strategy: audience targeting, content creation, and conversion-oriented Meta Ads campaigns.",
+    ],
+    tech: ["ERP", "E-commerce", "Meta Pixel", "Facebook Ads", "Digital Marketing"],
+  },
+  {
     role: "Full-Stack Development Intern (PFA)",
-    company: "Amirez — ERP & E-commerce Platform",
+    company: "SAFI Industriel — ERP & E-commerce Platform",
     period: "2 months, 2025",
     type: "Internship",
     highlights: [
@@ -88,16 +117,6 @@ export const experiences: Experience[] = [
       "Developed a full-stack bidding/auction platform (MERN: MongoDB, Express, React, Node.js) split into a dedicated client and API, and deployed it to production.",
     ],
     tech: ["MongoDB", "Express", "React", "Node.js"],
-  },
-  {
-    role: "Freelance Full-Stack Developer — ERP Systems",
-    company: "Self-Employed",
-    period: "Aug 2024 – Aug 2025",
-    type: "Freelance",
-    highlights: [
-      "Specialized in building ERP systems for clients using Next.js, NestJS, and PostgreSQL.",
-    ],
-    tech: ["Next.js", "NestJS", "PostgreSQL"],
   },
 ];
 
@@ -131,7 +150,7 @@ export const projects: Project[] = [
     links: [{ label: "Admin Console", url: "https://admin.localsmartdelivery.com/" }],
   },
   {
-    title: "Amirez ERP & E-commerce",
+    title: "SAFI Industriel ERP & E-commerce",
     tagline: "Full-stack ERP + storefront",
     description:
       "A complete ERP and e-commerce web platform with a NestJS + Prisma backend and a Next.js (TypeScript) + shadcn/ui frontend, backed by automated Vitest test suites for reliability across core modules.",
@@ -139,7 +158,7 @@ export const projects: Project[] = [
     featured: true,
     category: "Full-Stack",
     accent: "from-purple-500 via-fuchsia-500 to-pink-500",
-    monogram: "AZ",
+    monogram: "SE",
   },
   {
     title: "SAFI Bidding Platform",
@@ -202,6 +221,7 @@ export const skillGroups: SkillGroup[] = [
   { category: "DevOps & Tools", skills: ["Git / GitHub", "GitHub Actions", "Bitrise", "Docker", "Vitest"] },
   { category: "AI & Machine Learning", skills: ["Groq LLM (Llama-3.3-70B)", "ML Microservices", "Computer Vision"] },
   { category: "Payments", skills: ["Stripe", "Konnect", "Flouci"] },
+  { category: "Other", skills: ["UML Modeling", "REST API Design", "Agile Methodology"] },
 ];
 
 export const marqueeSkills = [
