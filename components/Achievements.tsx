@@ -32,9 +32,11 @@ export default function Achievements() {
                   <div className="flex-1">
                     <div className="flex items-start justify-between gap-2">
                       <h4 className="font-semibold text-fg">{a.title}</h4>
-                      <span className="shrink-0 font-mono text-xs text-neon-purple">
-                        {a.year}
-                      </span>
+                      {a.year && (
+                        <span className="shrink-0 font-mono text-xs text-neon-purple">
+                          {a.year}
+                        </span>
+                      )}
                     </div>
                     <p className="mt-0.5 text-sm text-fg-muted">{a.detail}</p>
                   </div>

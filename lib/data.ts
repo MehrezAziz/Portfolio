@@ -1,26 +1,26 @@
 export const profile = {
   name: "Ahmed Aziz Mehrez",
   shortName: "Aziz Mehrez",
-  title: "Full-Stack, Mobile & DevOps Engineer",
-  subtitle: "AI & Computer Vision Enthusiast",
+  title: "Software Engineer — Full-Stack, DevOps & AI",
+  subtitle: "Node.js · React / React Native · Docker, Kubernetes & Cloud",
   roles: [
     "Full-Stack Engineer",
-    "Mobile Developer",
-    "DevOps & CI/CD",
-    "AI & Computer Vision Enthusiast",
+    "DevOps Engineer",
+    "AI & LLM Engineer",
+    "Tech Lead",
   ],
   image: "/api/profile-image",
-  location: "Monastir, Tunisia",
+  location: "Tunis, Tunisia",
   phone: "+216 21 838 333",
   email: "azizmehrez12@gmail.com",
   linkedin: "https://linkedin.com/in/aziz-mehrez-204294232",
   github: "https://github.com/MehrezAziz",
-  bio: "Software Engineer (ISSAT Sousse) specialized in full-stack, mobile, and DevOps development, with a dual skill set in digital marketing and a genuine enthusiasm for AI and computer vision. Managing Director of Amirez since April 2025, leading the development team in Agile (Scrum) and overseeing Facebook Ads campaigns. Previously a freelance full-stack developer and marketing specialist (ERP, e-commerce stores, Meta Ads), with three internships completed: a React Native on-demand delivery platform integrating an AI assistant (Groq LLM) and an ML microservice for driver verification, a NestJS/Next.js ERP and e-commerce system, and a MERN-based bidding platform.",
+  bio: "Software engineer (5-year engineering degree, Master's level, ISSAT Sousse) with 3 years of experience shipping products end to end: Node.js/NestJS/Express back ends, React/Next.js and React Native front ends, PostgreSQL/MySQL/MongoDB, and the CI/CD and cloud infrastructure behind them (Docker, Kubernetes, AWS, Azure, GitHub Actions). Tech Lead & Managing Director of Amirez since April 2025, leading a Scrum development team. I enjoy turning an MVP into a stable, production-ready product.",
   bioShort:
-    "Comfortable across the stack — mobile, backend, frontend, DevOps, and infrastructure — as well as team management, and looking for a role where I can keep building and learning.",
+    "I build and run production apps end to end: APIs, mobile and web front ends, CI/CD and AI features.",
   available: true,
   // Edit this one line to change the hero status pill.
-  availabilityText: "Available for full-time roles · Remote or relocation",
+  availabilityText: "Open to remote roles · Relocation in Europe",
 };
 
 // CV / résumé files (in /public). Used by the language download button.
@@ -30,10 +30,10 @@ export const cvFiles = [
 ];
 
 export const stats = [
-  { value: 3, suffix: "+", label: "Professional Internships" },
+  { value: 3, suffix: "+", label: "Years of Experience" },
   { value: 4, suffix: "+", label: "Live Products Shipped" },
   { value: 300, prefix: "Top ", label: "Worldwide Hackathon Rank" },
-  { value: 6, suffix: "", label: "Certifications Earned" },
+  { value: 4, suffix: "", label: "Certifications Earned" },
 ];
 
 export type Experience = {
@@ -49,72 +49,73 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
-    role: "Managing Director",
-    company: "Amirez — Development & Marketing Lead",
+    role: "Tech Lead & Managing Director",
+    company: "Amirez — E-commerce Company, North Africa",
     period: "Apr 2025 – Present",
     type: "Full-Time",
     highlights: [
-      "Direct management of the Development pole in Agile (Scrum): 2-week sprints with sprint planning, daily stand-ups, sprint review, and retrospective.",
-      "Managed and prioritized the product backlog (user stories, acceptance criteria, story-point estimation) aligned with client needs.",
-      "Tracked progress with project management tools (Jira/Trello), performed code review, and set up CI/CD pipelines for regular releases.",
-      "Mentored developers and distributed tasks according to skillset.",
-      "Defined Meta Ads campaign strategy by objective: awareness, traffic, lead generation, or conversions.",
-      "Segmented audiences via interest targeting, custom and lookalike audiences, and retargeting.",
-      "Ran A/B tests on creatives, copy, and audiences, reallocating budget toward top performers.",
-      "Tracked KPIs (CTR, CPC, CPA, ROAS) via Meta Pixel and Ads Manager, with regular performance reporting.",
+      "Lead a development team in 2-week Scrum sprints; own architecture, code reviews and CI/CD.",
+      "Own technical decisions, code quality standards and the pipelines that deliver regular client releases.",
+      "Translate client requirements into technical specifications, user stories with acceptance criteria and data models.",
+      "Mentor developers and allocate tasks according to each profile; track progress in Jira and Trello.",
+      "Run the company's Meta Ads campaigns and track KPIs (CTR, CPC, CPA, ROAS) with regular performance reports.",
     ],
-    tech: ["Agile / Scrum", "Jira", "Trello", "CI/CD", "Meta Ads", "Meta Pixel"],
+    tech: ["Scrum", "Architecture", "Code Review", "CI/CD", "Jira", "Trello", "Meta Ads"],
   },
   {
-    role: "Software Engineering Intern (PFE)",
-    company: "A.Solutions — Local Smart Delivery",
-    period: "Feb 2026 – Jun 2026",
-    type: "End-of-Studies Internship",
+    role: "Freelance Full-Stack Developer & Digital Marketing Specialist",
+    company: "Self-Employed",
+    period: "Feb 2024 – Apr 2025",
+    type: "Freelance",
     highlights: [
-      "Designed and built \"Local Smart Delivery\", an on-demand peer-to-peer delivery platform (React Native) featuring driver verification, a coin-based in-app economy, and an AI-powered support assistant.",
-      "Implemented an in-app digital wallet enabling users to top up, manage, and spend their coin balance.",
-      "Integrated a conversational AI assistant powered by the Groq LLM (Llama-3.3-70B) for in-app user support.",
-      "Designed a dedicated Machine Learning microservice for automated driver verification.",
-      "Set up and visualized CI/CD pipelines (GitHub Actions, Bitrise) to automate build, test, and deploy to Google Play.",
-      "Evaluated payment gateways (Konnect & Flouci for local, Stripe for international), researching Estonian e-Residency vs. UK Ltd structures to work around regional restrictions.",
-      "Produced UML diagrams and architecture visuals used in technical documentation and jury presentations.",
+      "Built and deployed an ERP and complete e-commerce stores for business clients, from requirements analysis to production.",
+      "Ran conversion-focused Facebook Ads campaigns with A/B testing and CPA optimisation.",
+      "Integrated Meta Pixel tracking to measure conversions for clients.",
     ],
-    tech: ["React Native", "Groq LLM", "Machine Learning", "GitHub Actions", "Bitrise", "Stripe", "Konnect", "Flouci"],
+    tech: ["ERP", "E-commerce", "Meta Pixel", "Facebook Ads", "Digital Marketing"],
+  },
+  {
+    role: "Software Engineering Intern",
+    company: "A.Solutions — Local Smart Delivery",
+    period: "5 months",
+    type: "Internship",
+    highlights: [
+      "Designed and shipped Local Smart Delivery, a live peer-to-peer delivery platform as a React Native mobile app, covering users, delivery requests, courier verification and an internal coin economy.",
+      "Implemented the digital wallet logic: coin top-ups, balance management and spending.",
+      "Integrated an LLM-powered support assistant (Groq API, Llama-3.3-70B) and designed a Python machine-learning microservice for automatic courier verification.",
+      "Built CI/CD pipelines (GitHub Actions, Bitrise) automating build, tests and deployment of the mobile app to Google Play.",
+      "Evaluated local and international payment gateways (Konnect and Flouci locally, Stripe internationally) for the coin economy.",
+      "Produced UML diagrams and technical documentation for the platform; still managing the platform today.",
+    ],
+    tech: ["React Native", "Node.js", "Groq LLM", "Python ML", "GitHub Actions", "Bitrise", "Stripe"],
     links: [
       { label: "Web Console", url: "https://admin.localsmartdelivery.com/" },
       { label: "Google Play (Closed Testing)", url: "https://play.google.com/store" },
     ],
   },
   {
-    role: "Freelance Full-Stack Developer & Marketing Specialist",
-    company: "Self-Employed",
-    period: "Feb 2024 – Apr 2025",
-    type: "Freelance",
-    highlights: [
-      "Set up complete ERP systems and e-commerce storefronts, integrating the Meta Pixel to measure conversions.",
-      "Ran Facebook Ads campaigns: A/B testing creatives and audiences, optimizing budget and cost-per-acquisition, and analyzing performance.",
-      "Defined digital marketing strategy: audience targeting, content creation, and conversion-oriented Meta Ads campaigns.",
-    ],
-    tech: ["ERP", "E-commerce", "Meta Pixel", "Facebook Ads", "Digital Marketing"],
-  },
-  {
-    role: "Full-Stack Development Intern (PFA)",
+    role: "Full-Stack Developer Intern",
     company: "SAFI Industriel — ERP & E-commerce Platform",
-    period: "2 months, 2025",
+    period: "2 months",
     type: "Internship",
     highlights: [
-      "Built a full-stack ERP and e-commerce web platform: backend with NestJS and Prisma ORM, frontend with Next.js (TypeScript) and shadcn/ui.",
-      "Implemented automated testing with Vitest to ensure reliability across core modules.",
+      "Designed the relational data model with Prisma ORM (schemas and relations) covering both the ERP and the e-commerce domains.",
+      "Built a modular NestJS back end (modules, controllers, services) exposing the REST APIs consumed by the web application.",
+      "Developed the Next.js (TypeScript) front end with reusable shadcn/ui components for the back office and the online store.",
+      "Wrote automated tests with Vitest on the core modules to secure the business logic and prevent regressions.",
     ],
     tech: ["NestJS", "Prisma", "Next.js", "TypeScript", "shadcn/ui", "Vitest"],
   },
   {
-    role: "Full-Stack Development Intern (PFA)",
-    company: "SAFI Industriel — Bidding Platform",
-    period: "1 month, 2024",
+    role: "Full-Stack Developer Intern",
+    company: "SAFI Industriel — Online Auction Platform",
+    period: "1 month",
     type: "Internship",
     highlights: [
-      "Developed a full-stack bidding/auction platform (MERN: MongoDB, Express, React, Node.js) split into a dedicated client and API, and deployed it to production.",
+      "Designed and built a full-stack auction platform on the MERN stack, structured as two separate applications: a React client and a Node.js/Express REST API.",
+      "Modelled users, auctions and bids in MongoDB and implemented the API endpoints to publish items, browse auctions and place bids.",
+      "Implemented the core bidding rules on the server side, such as validating that each new bid is higher than the current highest bid.",
+      "Built the React interface for browsing auctions and bidding, then deployed the client and the API to production.",
     ],
     tech: ["MongoDB", "Express", "React", "Node.js"],
   },
@@ -141,69 +142,50 @@ export const projects: Project[] = [
     title: "Local Smart Delivery",
     tagline: "AI-powered peer-to-peer delivery platform",
     description:
-      "An on-demand P2P delivery app built in React Native with driver verification, a coin-based in-app economy, a digital wallet, and a Groq LLM (Llama-3.3-70B) support assistant. Includes an ML microservice for automated driver verification and full CI/CD to Google Play.",
-    tech: ["React Native", "Groq LLM", "ML Microservice", "GitHub Actions", "Bitrise", "Stripe"],
+      "A live on-demand P2P delivery app built in React Native with courier verification, an internal coin economy, a digital wallet, and a Groq LLM (Llama-3.3-70B) support assistant. Includes a Python ML microservice for automated courier verification and full CI/CD to Google Play.",
+    tech: ["React Native", "Node.js", "Groq LLM", "Python ML", "GitHub Actions", "Bitrise"],
     featured: true,
     category: "Mobile / AI",
     accent: "from-cyan-400 via-sky-500 to-blue-600",
     monogram: "LS",
-    links: [{ label: "Admin Console", url: "https://admin.localsmartdelivery.com/" }],
+    links: [
+      { label: "Admin Console", url: "https://admin.localsmartdelivery.com/" },
+      { label: "Google Play (Closed Testing)", url: "https://play.google.com/store" },
+    ],
   },
   {
-    title: "SAFI Industriel ERP & E-commerce",
+    title: "ERP & E-commerce Platform",
     tagline: "Full-stack ERP + storefront",
     description:
-      "A complete ERP and e-commerce web platform with a NestJS + Prisma backend and a Next.js (TypeScript) + shadcn/ui frontend, backed by automated Vitest test suites for reliability across core modules.",
+      "A complete ERP and e-commerce web platform with a modular NestJS + Prisma backend exposing REST APIs, and a Next.js (TypeScript) + shadcn/ui frontend serving both the back office and the online store, backed by automated Vitest test suites.",
     tech: ["NestJS", "Prisma", "Next.js", "TypeScript", "shadcn/ui", "Vitest"],
     featured: true,
     category: "Full-Stack",
     accent: "from-purple-500 via-fuchsia-500 to-pink-500",
-    monogram: "SE",
+    monogram: "EP",
   },
   {
-    title: "SAFI Bidding Platform",
-    tagline: "Real-time auction system",
+    title: "Online Auction Platform",
+    tagline: "Real-time bidding system",
     description:
-      "A full-stack bidding/auction platform built on the MERN stack, split into a dedicated client and API service, and deployed to production.",
+      "A full-stack auction platform on the MERN stack, structured as a separate React client and Node.js/Express REST API, with server-side bidding rules validating each new bid against the current highest, deployed to production.",
     tech: ["MongoDB", "Express", "React", "Node.js"],
     featured: true,
     category: "Full-Stack",
     accent: "from-emerald-400 via-teal-500 to-cyan-600",
-    monogram: "SF",
+    monogram: "AU",
   },
   {
-    title: "Charity Organization Website",
+    title: "Charity Organisation Website",
     tagline: "Volunteer developer project",
     description:
-      "Built and shipped a live website with a management dashboard for a charity organization as a volunteer developer.",
+      "Built and shipped a live website with a management dashboard for a charity organisation as a volunteer developer.",
     tech: ["Next.js", "React", "Dashboard"],
     featured: false,
     category: "Web",
     accent: "from-rose-400 via-pink-500 to-purple-600",
     monogram: "JM",
-    links: [{ label: "Live Site", url: "https://jam3iya.org/en/dashboard" }],
-  },
-  {
-    title: "Student Management System",
-    tagline: "Academic full-stack project",
-    description:
-      "A full-stack web application for managing student records, built with a Spring Boot backend and a React frontend.",
-    tech: ["Spring Boot", "React", "MySQL"],
-    featured: false,
-    category: "Academic",
-    accent: "from-amber-400 via-orange-500 to-rose-500",
-    monogram: "SM",
-  },
-  {
-    title: "Ship Cabin Management System",
-    tagline: "Desktop booking app",
-    description:
-      "A JavaFX desktop application for managing ship cabin bookings, backed by MySQL and including report-printing capabilities.",
-    tech: ["JavaFX", "MySQL", "Java"],
-    featured: false,
-    category: "Desktop",
-    accent: "from-indigo-400 via-blue-500 to-cyan-500",
-    monogram: "SC",
+    links: [{ label: "Live Site", url: "https://jam3iya.org" }],
   },
 ];
 
@@ -213,21 +195,44 @@ export type SkillGroup = {
 };
 
 export const skillGroups: SkillGroup[] = [
-  { category: "Languages", skills: ["JavaScript", "TypeScript", "Java", "C", "C++", "Python", "MATLAB", "SQL"] },
-  { category: "Mobile", skills: ["React Native", "Java", "Kotlin", "Google Play Deployment"] },
-  { category: "Frontend", skills: ["React", "Next.js", "shadcn/ui", "HTML/CSS"] },
-  { category: "Backend", skills: ["Node.js", "Express", "NestJS", "Spring Boot", ".NET", "Prisma ORM"] },
-  { category: "Databases", skills: ["MongoDB", "MySQL", "PostgreSQL"] },
-  { category: "DevOps & Tools", skills: ["Git / GitHub", "GitHub Actions", "Bitrise", "Docker", "Vitest"] },
-  { category: "AI & Machine Learning", skills: ["Groq LLM (Llama-3.3-70B)", "ML Microservices", "Computer Vision"] },
-  { category: "Payments", skills: ["Stripe", "Konnect", "Flouci"] },
-  { category: "Other", skills: ["UML Modeling", "REST API Design", "Agile Methodology"] },
+  {
+    category: "Back-end & APIs",
+    skills: ["Node.js", "Express", "NestJS", "REST APIs", "GraphQL", "Prisma", "Spring Boot", ".NET"],
+  },
+  {
+    category: "Front-end & Mobile",
+    skills: ["React", "Next.js", "React Native", "TypeScript", "JavaScript", "Bootstrap", "EJS", "HTML/CSS", "shadcn/ui"],
+  },
+  {
+    category: "Databases & Search",
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "Elasticsearch", "Neo4j"],
+  },
+  {
+    category: "DevOps & Cloud",
+    skills: ["Docker", "Kubernetes", "AWS", "Microsoft Azure", "Linux", "Bash", "GitHub Actions", "Bitrise", "CI/CD"],
+  },
+  {
+    category: "Languages",
+    skills: ["Python", "Java", "C", "C++", "C#", "SQL"],
+  },
+  {
+    category: "AI",
+    skills: ["LLM Integration", "LangChain", "Agentic AI Workflows", "ML Microservices", "Cursor", "Claude Code", "Codex"],
+  },
+  {
+    category: "Design",
+    skills: ["Figma", "Photoshop", "Illustrator", "Canva"],
+  },
+  {
+    category: "Methods",
+    skills: ["Scrum", "Code Reviews", "Mentoring", "UML", "Technical Documentation"],
+  },
 ];
 
 export const marqueeSkills = [
-  "JavaScript", "TypeScript", "React", "Next.js", "React Native", "Node.js",
-  "NestJS", "Spring Boot", "Python", "Docker", "PostgreSQL", "MongoDB",
-  "Groq LLM", "GitHub Actions", "Prisma", "Kotlin", "Java", "C++",
+  "Node.js", "NestJS", "Express", "React", "Next.js", "React Native",
+  "TypeScript", "Docker", "Kubernetes", "AWS", "Azure", "GitHub Actions",
+  "PostgreSQL", "MongoDB", "Elasticsearch", "Prisma", "LangChain", "Python",
 ];
 
 export type Achievement = {
@@ -237,41 +242,39 @@ export type Achievement = {
 };
 
 export const achievements: Achievement[] = [
-  { title: "Hackathon Problem-Solving", detail: "Ranked in the Top 300 worldwide.", year: "2023" },
-  { title: "MATLAB Skills", detail: "1st Prize Winner, High School Projects, Sousse.", year: "2023" },
-  { title: "Next-Generation Networks Certification", detail: "ISSAT Sousse", year: "2024" },
-  { title: "Network Security Certification", detail: "ISSAT Sousse", year: "2024" },
-  { title: "Service Virtualization & Cloud Computing", detail: "ISSAT Sousse", year: "2025" },
-  { title: "Big Data Certification", detail: "ISSAT Sousse", year: "2026" },
+  { title: "Problem-Solving Hackathon", detail: "Ranked in the global Top 300.", year: "2023" },
+  { title: "Service Virtualisation & Cloud Computing", detail: "ISSAT Sousse", year: "" },
+  { title: "Big Data Certification", detail: "ISSAT Sousse", year: "" },
+  { title: "Next-Generation Networks Certification", detail: "ISSAT Sousse", year: "" },
+  { title: "Network Security Certification", detail: "ISSAT Sousse", year: "" },
 ];
 
 export const leadership = [
   {
+    role: "Founder & Team Leader — Online Sales & Trading Freelance Team",
+    period: "Sep 2022 – Dec 2025",
+    detail: "Founded and led a freelance team specialising in dropshipping, digital marketing and content creation, growing it from 2 to 5 members.",
+  },
+  {
     role: "Gold Member — IEEE ISSATso Student Branch",
     period: "Sep 2021 – Aug 2022",
-    detail: "Executed a strategic plan to expand branch reach across campus, driving 200%+ membership growth while managing administrative tasks, records, and meetings.",
+    detail: "Executed a campus outreach plan that grew the branch's membership by more than 200%.",
   },
   {
-    role: "Leader & Manager — Freelance Team",
-    period: "Sep 2022 – Dec 2025",
-    detail: "Founded and led a freelance team specializing in dropshipping, digital marketing, and content creation, growing it from 2 to 5 members.",
-  },
-  {
-    role: "Volunteer Developer — Charity Organization",
+    role: "Volunteer Developer — Charity Organisation",
     period: "Mar 2026",
-    detail: "Built a live website for a charity organization (jam3iya.org).",
+    detail: "Built the organisation's website (live: jam3iya.org).",
   },
 ];
 
 export const education = {
-  degree: "National Diploma in Computer Engineering — Software Engineering",
-  school: "ISSAT Sousse (Institut Supérieur des Sciences Appliquées et de Technologie de Sousse), Tunisia",
-  period: "2021 – 2026",
-  detail: "2021–2022: Preparatory Cycle  |  2022–2026: Engineering Cycle, Software Engineering",
+  degree: "National Engineering Diploma in Computer Science — Software Engineering",
+  school: "ISSAT Sousse (Higher Institute of Applied Sciences and Technology of Sousse), Tunisia",
+  period: "5 years",
+  detail: "Master's level",
 };
 
 export const languages = [
-  { name: "Arabic", level: "Native", value: 100 },
-  { name: "French", level: "Professional Working Proficiency", value: 85 },
-  { name: "English", level: "Professional Working Proficiency", value: 85 },
+  { name: "French", level: "Bilingual (second native language)", value: 100 },
+  { name: "English", level: "Full professional proficiency", value: 90 },
 ];

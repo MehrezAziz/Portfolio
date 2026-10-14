@@ -9,8 +9,8 @@ import Reveal from "./Reveal";
 const pillars = [
   { icon: Code2, title: "Full-Stack", desc: "React, Next.js, NestJS, Spring Boot & more across the whole stack." },
   { icon: Smartphone, title: "Mobile", desc: "React Native apps shipped to the Google Play Store." },
-  { icon: Server, title: "DevOps", desc: "CI/CD with GitHub Actions, Bitrise & Docker." },
-  { icon: Brain, title: "AI / ML", desc: "LLM assistants (Groq) & ML microservices for verification." },
+  { icon: Server, title: "DevOps & Cloud", desc: "Docker, Kubernetes, AWS & Azure with GitHub Actions CI/CD." },
+  { icon: Brain, title: "AI / LLM", desc: "LLM integration, LangChain & agentic AI workflows." },
 ];
 
 export default function About() {
